@@ -12,9 +12,7 @@ function addHotspot(state, action) {
 function delHotspot(state, action) {
   const { id } = action;
 
-  const newHotspots = state.filter((item) => item.id !== id);
-
-  return [...state, newHotspots];
+  return state.filter((item) => item.id !== id);
 }
 
 const initialState = [];

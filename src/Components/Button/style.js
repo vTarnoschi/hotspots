@@ -1,11 +1,16 @@
 import styled, { css } from "styled-components";
 
+const disabledCss = css`
+  opacity: 0.5;
+  pointer-events: none;
+`;
+
 export const ButtonWrapper = styled.button`
-  ${({ space }) => {
+  ${({ space, disabled, size }) => {
     const { top, bottom, left, right } = space;
 
     return css`
-      min-width: 200px;
+      width: ${size}px;
       padding: 12px 14px;
       border-radius: 20px;
       outline: none;
@@ -20,6 +25,8 @@ export const ButtonWrapper = styled.button`
       margin-right: ${right}px;
 
       transition: opacity 0.2s ease-in-out;
+
+      ${disabled ? disabledCss : ""}
 
       :hover {
           opacity: 0.7;

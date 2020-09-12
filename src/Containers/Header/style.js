@@ -17,6 +17,6 @@ export const MenuLinkWrapper = styled.div`
   align-items: center;
 
   span {
-    color: #9b9b9b;
+    color: #808080;
   }
 `;

@@ -1,19 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
+
+import GlobalProvider from "../Context";
 
 import Header from "./Header";
 import Content from "./Content";
 
 const MainApp = () => {
-  const teste = useSelector((state) => state);
-  console.log(teste);
-
   return (
-    <React.Fragment>
+    <GlobalProvider>
       <Header />
 
       <Content />
-    </React.Fragment>
+    </GlobalProvider>
   );
 };
 

@@ -5,7 +5,7 @@ export const ListWrapper = styled.div``;
 export const ListTitleWrapper = styled.div`
   padding: 10px;
   background: #ebebeb;
-  color: #9b9b9b;
+  color: #808080;
   font-weight: 500;
 `;
 
@@ -18,7 +18,7 @@ export const ListContentWrapper = styled.div`
 
     span {
       font-weight: 500;
-      color: #9b9b9b;
+      color: #808080;
       flex: 1;
     }
   }
