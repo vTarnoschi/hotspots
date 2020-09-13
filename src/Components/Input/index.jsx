@@ -1,12 +1,7 @@
 import React, { memo } from "react";
 
-import { InputWrapper, InputStyle, LabelStyle } from "./style";
+import { InputStyle } from "./style";
 
-const Input = memo(({ label, ...props }) => (
-  <InputWrapper>
-    <LabelStyle>{label}</LabelStyle>
-    <InputStyle {...props} />
-  </InputWrapper>
-));
+const Input = memo(({ ...props }) => <InputStyle {...props} />);
 
 export default Input;

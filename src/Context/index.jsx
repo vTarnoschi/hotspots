@@ -1,11 +1,13 @@
-import React, { memo, useCallback, useContext, useState } from "react";
+import React, { lazy, memo, useCallback, useContext, useState } from "react";
 
 import Modal from "../Components/Modal";
+import Loading from "../Components/Loading";
 
-import HotspotForm from "./HotspotForm";
 import HotspotsFeedback from "./HotspotsFeedback";
 
 import AppWrapper from "./style";
+
+const HotspotForm = lazy(() => import("./HotspotForm"));
 
 const GlobalContext = React.createContext();
 
@@ -87,7 +89,9 @@ const GlobalProvider = memo(({ children }) => {
           {children}
         </AppWrapper>
 
-        <HotspotsFeedback />
+        <React.Suspense fallback={<Loading />}>
+          <HotspotsFeedback />
+        </React.Suspense>
       </GlobalContext.Provider>
 
       <Modal
@@ -96,10 +100,13 @@ const GlobalProvider = memo(({ children }) => {
         onClose={handleOnClose}
         position={{ left: state.modalConfig.left, top: state.modalConfig.top }}
       >
-        <HotspotForm
-          left={state.modalConfig.left}
-          top={state.modalConfig.top}
-        />
+        <React.Suspense fallback={<Loading />}>
+          <HotspotForm
+            left={state.modalConfig.left}
+            top={state.modalConfig.top}
+            callback={handleOnClose}
+          />
+        </React.Suspense>
       </Modal>
     </React.Fragment>
   );

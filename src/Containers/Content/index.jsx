@@ -26,7 +26,7 @@ const Content = () => {
           right: 0,
         }}
       >
-        Criar Hotspot
+        Create Hotspot
       </Button>
 
       <HotspotsList />

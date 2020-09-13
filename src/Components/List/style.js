@@ -21,5 +21,15 @@ export const ListContentWrapper = styled.div`
       color: #808080;
       flex: 1;
     }
+
+    a {
+      color: #808080;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+
+      :hover {
+        opacity: 0.5;
+      }
+    }
   }
 `;

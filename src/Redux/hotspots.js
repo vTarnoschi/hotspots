@@ -1,3 +1,5 @@
+import Storage from "../Utils/Storage";
+
 const types = {
   ADD: "ADD_HOTSPOT",
   DEL: "DELETE_HOTSPOT",
@@ -6,16 +8,28 @@ const types = {
 function addHotspot(state, action) {
   const { payload } = action;
 
+  Storage.setLocalStorage("hotspots", [...state, payload]);
+
   return [...state, payload];
 }
 
 function delHotspot(state, action) {
   const { id } = action;
 
-  return state.filter((item) => item.id !== id);
+  const newState = state.filter((item) => item.id !== id);
+
+  Storage.setLocalStorage("hotspots", newState);
+
+  return newState
 }
 
-const initialState = [];
+function getInitialState() {
+  const values = Storage.getLocalStorage("hotspots")
+
+  return values || [];
+}
+
+const initialState = getInitialState();
 
 export default function hotspotsReducer(state = initialState, action) {
   switch (action.type) {

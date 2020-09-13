@@ -1,17 +1,20 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const InputWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+const errorStyle = css`
+  border-color: #ff0000;
 `;
 
-export const LabelStyle = styled.label``;
-
 export const InputStyle = styled.input`
-  outline: none;
-  padding: 8px 0;
-  margin: 10px 0;
-  border-radius: 4px;
-  border: 1px solid #858885;
-  padding-left: 10px;
+  ${({ hasError }) => {
+    return css`
+      outline: none;
+      padding: 8px 0;
+      margin: 10px 0;
+      border-radius: 4px;
+      border: 1px solid #858885;
+      padding-left: 10px;
+
+      ${hasError ? errorStyle : ""};
+    `;
+  }}
 `;
