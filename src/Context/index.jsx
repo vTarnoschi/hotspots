@@ -92,7 +92,7 @@ const GlobalProvider = memo(({ children }) => {
 
       <Modal
         visible={state.modalConfig.visible}
-        title="Teste"
+        title="New Hotspot"
         onClose={handleOnClose}
         position={{ left: state.modalConfig.left, top: state.modalConfig.top }}
       >
