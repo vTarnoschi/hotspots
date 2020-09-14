@@ -57,8 +57,6 @@ const HotspotForm = memo(({ left, top, callback }) => {
     }
   }, [left, top, formValues, callback]);
 
-  console.log(formValues);
-
   const handleOnChange = (evt) => {
     const { value, id } = evt.target;
 

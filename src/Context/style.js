@@ -8,6 +8,10 @@ const inspectCss = css`
       border: 1px solid #ff8080;
     }
   }
+
+  .delete-action {
+    pointer-events: none;
+  }
 `;
 
 const AppWrapper = styled.div`

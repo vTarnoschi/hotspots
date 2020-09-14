@@ -3,18 +3,12 @@ import React, { lazy, memo, useCallback, useContext, useState } from "react";
 import Modal from "../Components/Modal";
 import Loading from "../Components/Loading";
 
-import HotspotsFeedback from "./HotspotsFeedback";
-
 import AppWrapper from "./style";
 
 const HotspotForm = lazy(() => import("./HotspotForm"));
+const HotspotsFeedback = lazy(() => import("./HotspotsFeedback"));
 
 const GlobalContext = React.createContext();
-
-const screenConfig = {
-  width: window.screen.availWidth,
-  height: window.screen.availHeight,
-};
 
 const initialState = {
   inspect: false,
@@ -24,22 +18,6 @@ const initialState = {
     top: 0,
   },
 };
-
-function getPoisition(left, top) {
-  let positions = {
-    leftAux: left,
-    topAux: top,
-  };
-
-  const maxWidthAllowed = (screenConfig.width * 75) / 100;
-  const maxHeigthAllowed = (screenConfig.height * 85) / 100;
-
-  if (left > maxWidthAllowed) positions.leftAux = left - 350;
-
-  if (top > maxHeigthAllowed) positions.topAux = top - 77;
-
-  return positions;
-}
 
 const GlobalProvider = memo(({ children }) => {
   const [state, setState] = useState(initialState);
@@ -53,14 +31,12 @@ const GlobalProvider = memo(({ children }) => {
   const handleOnClick = (evt) => {
     const { clientX, clientY } = evt;
 
-    const positions = getPoisition(clientX, clientY);
-
     setState((state) => ({
       ...state,
       modalConfig: {
         visible: true,
-        left: positions.leftAux,
-        top: positions.topAux,
+        left: clientX,
+        top: clientY,
       },
     }));
   };
@@ -76,7 +52,7 @@ const GlobalProvider = memo(({ children }) => {
         handleSetInspect,
       },
     }),
-    [handleSetInspect]
+    [handleSetInspect, state.inspect]
   );
 
   return (

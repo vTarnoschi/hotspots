@@ -4,7 +4,13 @@ import PropTypes from "prop-types";
 import { ButtonWrapper } from "./style";
 
 const Button = memo(({ children, space, size, disabled, ...props }) => (
-  <ButtonWrapper {...props} space={space} size={size} disabled={disabled}>
+  <ButtonWrapper
+    data-testid="custom-button"
+    {...props}
+    space={space}
+    size={size}
+    disabled={disabled}
+  >
     {children}
   </ButtonWrapper>
 ));

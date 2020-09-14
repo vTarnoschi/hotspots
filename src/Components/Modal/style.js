@@ -24,9 +24,32 @@ export const ModalWrapper = styled.div`
       box-shadow: 0px 5px 10px 0px rgba(117, 117, 117, 0.5);
       position: absolute;
       z-index: 3;
-      left: ${left}px;
-      top: ${top}px;
+      left: ${left - 175}px;
+      top: ${top + 35}px;
       animation: fadeIn 0.2s ease-in;
+
+      .shadow {
+        left: 158px;
+        top: -30px;
+        position: absolute;
+        width: 33px;
+        height: 30px;
+        clip-path: polygon(50% 30%, 0% 100%, 100% 100%);
+        background: rgba(0, 0, 0, 0.2);
+        filter: blur(5px);
+      }
+
+      :after {
+        background: #ffffff;
+        left: 160px;
+        top: -30px;
+        clip-path: polygon(50% 30%, 0% 100%, 100% 100%);
+        width: 30px;
+        height: 30px;
+        z-index: 1;
+        content: " ";
+        position: absolute;
+      }
 
       .modal-title {
         padding: 10px;

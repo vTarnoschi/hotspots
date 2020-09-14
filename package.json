@@ -4,11 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development --hot"
+    "start": "webpack-dev-server --open --mode development --hot",
+    "test": "jest --u"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vTarnoschi/hotspots.git"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/config/CSSStub.js",
+      "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/config/File.js"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/config/setupTests.js"
   },
   "keywords": [],
   "author": "",
@@ -19,16 +27,24 @@
   "homepage": "https://github.com/vTarnoschi/hotspots#readme",
   "devDependencies": {
     "@babel/core": "^7.11.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.11.0",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-react": "^7.10.4",
+    "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.11.1",
     "css-loader": "^4.3.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.4",
     "file-loader": "^6.0.0",
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
+    "jest": "^26.4.2",
+    "jest-enzyme": "^7.1.2",
     "prop-types": "^15.7.2",
+    "react-test-renderer": "^16.13.1",
     "style-loader": "^1.2.1",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",

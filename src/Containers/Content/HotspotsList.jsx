@@ -34,7 +34,12 @@ const HotspotsList = () => {
           {hotspots.map((item) => (
             <div key={item.id}>
               <span>{item.title}</span>
-              <a onClick={() => handleOnDelete(item.id)}>Delete</a>
+              <a
+                onClick={() => handleOnDelete(item.id)}
+                className="delete-action"
+              >
+                Delete
+              </a>
             </div>
           ))}
         </List.Content>

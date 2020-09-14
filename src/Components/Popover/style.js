@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const PopoverWrapper = styled.div`
   .popover-content {
+    z-index: 1;
     display: none;
     width: 200px;
     position: absolute;
@@ -15,35 +16,27 @@ export const PopoverWrapper = styled.div`
     background: #fff;
     box-shadow: 0px 5px 10px 0px rgba(117, 117, 117, 0.5);
 
-    :after {
-      left: 92px;
-      top: -35px;
-      width: 25px;
-      height: 25px;
-      z-index: 1;
-      border: solid transparent;
-      content: " ";
-      height: 0;
-      width: 0;
+    .shadow {
+      left: 93px;
+      top: -28px;
       position: absolute;
-      pointer-events: none;
-      border-color: rgb(0 0 0 / 0%);
-      border-bottom-color: #ffffff;
-      border-width: 18px;
+      width: 33px;
+      height: 30px;
+      clip-path: polygon(50% 30%, 0% 100%, 100% 100%);
+      background: rgba(0, 0, 0, 0.2);
+      filter: blur(5px);
     }
 
-    :before {
-      content: "";
+    :after {
+      background: #ffffff;
+      left: 95px;
+      top: -28px;
+      clip-path: polygon(50% 30%, 0% 100%, 100% 100%);
+      width: 30px;
+      height: 30px;
+      z-index: 1;
+      content: " ";
       position: absolute;
-      -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      transform: rotate(45deg);
-      width: 28px;
-      height: 28px;
-      left: 97px;
-      top: -12px;
-      z-index: -1;
-      box-shadow: 0px 5px 10px 0px rgba(117, 117, 117, 0.5);
     }
   }
 

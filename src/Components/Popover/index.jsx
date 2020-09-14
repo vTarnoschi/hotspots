@@ -5,6 +5,7 @@ import { PopoverWrapper } from "./style";
 const Popover = memo(({ title, description, position, children }) => (
   <PopoverWrapper position={position}>
     <div className="popover-content">
+      <div className="shadow" />
       <div className="popover-title">{title}</div>
       <div className="popover-description">{description}</div>
     </div>
